@@ -51,7 +51,7 @@ The medtech-style dashboard features:
 - **Edit Count / Approve Result** workflow buttons
 - **Recent history table** with status badges
 
-![Dashboard Preview](Dashboard_Preview.png)
+![Dashboard Preview](tests/Dashboard_Preview.png)
 
 ---
 
