@@ -336,6 +336,55 @@ The `scripts/evaluate_dataset.py` helper calculates detection metrics against an
 
 ---
 
+## 📦 Dataset
+
+The `data/` directory (excluded from this repository — see `.gitignore`) is used with the following publicly available dataset for benchmarking and development:
+
+### Microbial Colony Recognition Dataset
+
+| Field | Details |
+|---|---|
+| **Title** | Microbial Colony Recognition Dataset |
+| **Author** | zoya77 (Kaggle) |
+| **Published** | 2025-05-10 |
+| **License** | [CC0 1.0 — Public Domain](https://creativecommons.org/publicdomain/zero/1.0/) |
+| **Source** | [kaggle.com/datasets/zoya77/microbial-colony-recognition-dataset](https://www.kaggle.com/datasets/zoya77/microbial-colony-recognition-dataset) |
+| **Size** | ~86 MB |
+
+**Description:**
+> This dataset consists of high-resolution images capturing bacterial colonies grown on agar plates. The images were collected under varied lighting conditions and from different camera setups to ensure diversity. It includes single-species and mixed-species cultures, allowing broad applicability in microbial analysis. The dataset supports visual recognition tasks through precise annotations of colony positions. These annotations help in identifying and counting colonies efficiently.
+
+**Structure used in this project:**
+
+```
+data/Microbial Colony dataset/
+├── higher-resolution/
+│   ├── bright/      ← well-lit plate images + JSON annotations
+│   ├── dark/        ← low-light plate images + JSON annotations
+│   └── vague/       ← low-contrast plate images + JSON annotations
+└── lower-resolution/
+    └── *.jpg / *.json
+```
+
+Each `.json` annotation file is a sidecar file alongside its paired `.jpg` image, containing colony bounding-box or point annotations used by `core/dataset_annotations.py` and `scripts/evaluate_dataset.py`.
+
+**Citation (BibTeX):**
+
+```bibtex
+@misc{zoya77_microbial_colony_dataset,
+  author    = {zoya77},
+  title     = {Microbial Colony Recognition Dataset},
+  year      = {2025},
+  publisher = {Kaggle},
+  url       = {https://www.kaggle.com/datasets/zoya77/microbial-colony-recognition-dataset},
+  note      = {License: CC0 1.0 Public Domain}
+}
+```
+
+> **Note:** The dataset is **not** bundled in this repository. Download it directly from Kaggle and place it at `data/Microbial Colony dataset/` to use the benchmarking scripts.
+
+---
+
 ## 🔭 Roadmap
 
 - [ ] YOLO or Detectron2 colony detector trained from JSON annotations
@@ -359,8 +408,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on bug reports, feature re
 
 This project is licensed under the [MIT License](LICENSE).
 
+The dataset used for benchmarking is separately licensed under [CC0 1.0 Public Domain](https://creativecommons.org/publicdomain/zero/1.0/).
+
 ---
 
 ## 🙏 Acknowledgements
 
 Built with [PySide6](https://doc.qt.io/qtforpython/), [OpenCV](https://opencv.org/), [scikit-image](https://scikit-image.org/), [NumPy](https://numpy.org/), and [pandas](https://pandas.pydata.org/).
+
+Dataset: [Microbial Colony Recognition Dataset](https://www.kaggle.com/datasets/zoya77/microbial-colony-recognition-dataset) by zoya77, licensed CC0 1.0.
